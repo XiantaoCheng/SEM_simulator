@@ -1,0 +1,111 @@
+<!--
++[返回目录]
+
+LaTeX数学记号::https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
++[打开](,LaTeX数学记号)
+-->
+
+<html>
+  <head>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://stemkoski.github.io/Three.js/js/Three.js"></script>
+<script src="../js/OrbitControls.js"></script>
+<script type="text/javascript" src="../js/threeWorld.js"></script>
+
+
+<script>
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return; // Do nothing if the event was already processed
+  }
+  switch (event.key) {
+    case "Left": // IE/Edge specific value
+    case "ArrowLeft":
+      window.location="../pages/方法:_电场.html";
+      break;
+    case "Right": // IE/Edge specific value
+    case "ArrowRight":
+      window.location="../pages/方法:_传播矩阵.html";
+      break;
+    default:
+      return; // Quit when this doesn't handle the key event.
+  }
+
+  // Cancel the default action to avoid it being handled twice
+  event.preventDefault();
+}, true);
+</script>
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/styleSheet.css">
+  </head>
+
+
+<body>
+<div class="topnav">
+  <a href="../pages/方法:_电场.html">Prev</a>
+  <a href="../index.html">Home</a>
+  <a href="../pages/方法:_传播矩阵.html">Next</a>
+</div>
+
+
+<div class="content">
+    <p><mathjax style=\"font-size:1.5em\">
+
+<h1>方法: 四阶龙格库塔方法(RK4)</h1>
+计算步骤,<br>
+
+$$
+x\ _{n+1}=x\ _{n}+\frac{\Delta t}{6}\ \left(a+2\ b+2\ c+d\right)
+\tag{5}
+$$
+
+
+$$
+a=f(t\ _{n},x\ _{n})
+\tag{6}
+$$
+
+
+$$
+b=f(t\ _{n}+\Delta t/2,x\ _{n}+\Delta t/2\ a)
+\tag{7}
+$$
+
+
+$$
+c=f(t\ _{n}+\Delta t/2,x\ _{n}+\Delta t/2\ b)
+\tag{8}
+$$
+
+
+$$
+d=f(t\ _{n}+\Delta t,x\ _{n}+\Delta t\ c)
+\tag{9}
+$$
+
+其中, \(f(t,x)\) 的定义为,<br>
+
+$$
+\begin{cases}
+f_{1}(t,x,y,v_{x},v_{y})=v_{x}\\ f_{2}(t,x,y,v_{x},v_{y})=v_{y}\\ f_{3}(t,x,y,v_{x},v_{y})=\left(v_{y}\ B_{z}(x,y)+E_{x}(x,y)\right)\ q/m\\ f_{4}(t,x,y,v_{x},v_{y})=\left(-v_{x}\ B_{z}(x,y)+E_{y}(x,y)\right)\ q/m
+\end{cases}
+\tag{10}
+$$
+
+
+
+
+    </mathjax></p>
+</div>
+
+<div class="footer">
+  <p>Footer</p>
+</div>
+
+</body>
+</html>
