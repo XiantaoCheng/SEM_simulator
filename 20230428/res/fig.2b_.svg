@@ -1,0 +1,19 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 1000 460.9464941085569" style="overflow: hidden;border: 2px solid #888888;"> 
+<circle cx="337.137428" cy="156.205857" r="6.005631" style="fill:rgb(0,0,0);stroke:black;stroke-width:5;fill-rule:evenodd;" />
+<circle cx="471.711770" cy="83.897255" r="6.005631" style="fill:rgb(0,0,0);stroke:black;stroke-width:5;fill-rule:evenodd;" />
+<circle cx="626.371835" cy="67.828677" r="6.005631" style="fill:rgb(0,0,0);stroke:black;stroke-width:5;fill-rule:evenodd;" />
+<circle cx="622.354690" cy="242.574465" r="6.005631" style="fill:rgb(0,0,0);stroke:black;stroke-width:5;fill-rule:evenodd;" />
+<circle cx="646.457558" cy="340.994506" r="6.005631" style="fill:rgb(0,0,0);stroke:black;stroke-width:5;fill-rule:evenodd;" />
+<circle cx="477.737487" cy="367.105945" r="6.005631" style="fill:rgb(0,0,0);stroke:black;stroke-width:5;fill-rule:evenodd;" />
+<circle cx="315.043133" cy="276.720193" r="6.005631" style="fill:rgb(0,0,0);stroke:black;stroke-width:5;fill-rule:evenodd;" />
+<polyline points="337,156 315,276 477,367 646,340 622,242 626,67 471,83 337,156 " style="fill:none;stroke:rgb(0,0,255);stroke-width:5;fill-rule:evenodd;" />
+<circle cx="552.054661" cy="210.437308" r="6.005631" style="fill:rgb(0,0,0);stroke:black;stroke-width:5;fill-rule:evenodd;" />
+<polyline points="626,67 552,210 471,83 " style="fill:none;stroke:rgb(0,0,0);stroke-width:5;fill-rule:evenodd;" stroke-dasharray="10,10"/>
+<polyline points="337,156 315,276 477,367 552,210 646,340 622,242 626,67 471,83 337,156 " style="fill:none;stroke:rgb(255,0,0);stroke-width:5;fill-rule:evenodd;" />
+<text dominant-baseline="middle"  x="551.004637" y="193.378966" font-size="15"></text>
+
+</svg>
+
+
+

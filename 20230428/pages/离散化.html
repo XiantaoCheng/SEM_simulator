@@ -1,0 +1,266 @@
+<!--
++[返回目录]
+
+LaTeX数学记号::https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
++[打开](,LaTeX数学记号)
+-->
+
+<html>
+  <head>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://stemkoski.github.io/Three.js/js/Three.js"></script>
+<script src="../js/OrbitControls.js"></script>
+<script type="text/javascript" src="../js/threeWorld.js"></script>
+
+
+<script>
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return; // Do nothing if the event was already processed
+  }
+  switch (event.key) {
+    case "Left": // IE/Edge specific value
+    case "ArrowLeft":
+      window.location="../pages/弱形式.html";
+      break;
+    case "Right": // IE/Edge specific value
+    case "ArrowRight":
+      window.location="../pages/例子.html";
+      break;
+    default:
+      return; // Quit when this doesn't handle the key event.
+  }
+
+  // Cancel the default action to avoid it being handled twice
+  event.preventDefault();
+}, true);
+</script>
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/styleSheet.css">
+  </head>
+
+
+<body>
+<div class="topnav">
+  <a href="../pages/弱形式.html">Prev</a>
+  <a href="../index.html">Home</a>
+  <a href="../pages/例子.html">Next</a>
+</div>
+
+
+<div class="content">
+    <p><mathjax style=\"font-size:1.5em\">
+
+<h1>离散化</h1>
+
+$$
+\sum_{i}{\int_{S\\ 
+_{i}}^{}{ds\ }{\left(-\vec{\nabla}\ u \left( x,y \right)\cdot \vec{\nabla}\ v\right)}}=\sum_{i}{\int_{S\ _{i}}^{}{ds\ }{f \left( x,y \right)\ v}}
+\tag{6}
+$$
+在区域\(S_i\)中, \(u(x,y)\)可以写作, <br>
+
+$$
+u \left( x,y \right)=u\ _{i,0}+u\ _{i,1}\ x+u\ _{i,2}\ y
+\tag{7}
+$$
+
+
+$$
+\sum_{i}{\int_{S\ _{i}}^{}{ds\ }{\left(-\begin{pmatrix}
+u\ _{i,1},&u\ _{i,2}
+\end{pmatrix}
+
+\cdot \begin{pmatrix}
+v\ _{i,1},&v\ _{i,2}
+\end{pmatrix}
+
+\right)}}=\sum_{i}{\int_{S\ _{i}}^{}{ds\ }{f \left( x,y \right)\ v}}
+\tag{8}
+$$
+
+
+$$
+\sum_{i}{\int_{S\\ 
+_{i}}^{}{ds\ }{\left(-\left(u\ _{i,1}\ v\ _{i,1}+u\ _{i,2}\ v\ _{i,2}\right)\right)}}=\sum_{i}{\int_{S\ _{i}}^{}{ds\ }{f \left( x,y \right)\ v}}
+\tag{9}
+$$
+如果\(S_i\)是三角形区域, 我们应当知道函数在三角形顶点上的值, 由此可以计算出系数\(u_{i,j}\). 假设三角形\(S_i\)的顶点位置分别是\((x_{i,k},y_{i,k})\), 那么有<br>
+
+$$
+u \left( x\ _{i,k},y\ _{i,k} \right)=u\ _{i,0}+u\ _{i,1}\ x\ _{i,k}+u\ _{i,2}\ y\ _{i,k}
+\tag{10}
+$$
+
+
+$$
+U\ _{i,k}=u\ _{i,0}+u\ _{i,1}\ x\ _{i,k}+u\ _{i,2}\ y\ _{i,k}
+\tag{11}
+$$
+
+写成矩阵形式, <br>
+
+$$
+\vec{U}=\mathbf{R}\ \vec{u}
+\tag{12}
+$$
+
+
+$$
+\begin{pmatrix}
+U\ _{i,0}\\ U\ _{i,1}\\ U\ _{i,2}
+\end{pmatrix}
+
+=\begin{pmatrix}
+1&x\ _{i,0}&y\ _{i,0}\\ 1&x\ _{i,1}&y\ _{i,1}\\ 1&x\ _{i,2}&y\ _{i,2}
+\end{pmatrix}
+
+\ \begin{pmatrix}
+u\ _{i,0}\\ u\ _{i,1}\\ u\ _{i,2}
+\end{pmatrix}
+\tag{13}
+$$
+
+因此, 我们可以将\(u\)和\(v\)表示成顶点上的\(U\)和\(V\),<br>
+
+$$
+\vec{u}=\mathbf{R_{r}}\ \vec{U}
+\tag{14}
+$$
+
+
+$$
+\vec{u}^{T}\ \mathbf{G}\ \vec{v}=\vec{U}^{T}\ \mathbf{R_{r}}^{T}\ \mathbf{G}\ \mathbf{R_{r}}\ \vec{V}
+\tag{15}
+$$
+
+其中有, <br>
+
+$$
+\mathbf{R_{r}}=\mathbf{R}^{-1}
+\tag{16}
+$$
+
+
+$$
+\mathbf{G}=\begin{pmatrix}
+0&0&0\\ 0&1&0\\ 0&0&1
+\end{pmatrix}
+\tag{17}
+$$
+
+
+$$
+\mathbf{T}=\mathbf{R_{r}}^{T}\ \mathbf{G}\ \mathbf{R_{r}}
+\tag{18}
+$$
+
+式(9)的左边记作为,<br>
+
+$$
+A=\sum_{i}{\int_{S\ _{i}}^{}{ds\ }{\left(-\left(u\ _{i,1}\ v\ _{i,1}+u\ _{i,2}\ v\ _{i,2}\right)\right)}}
+\tag{19}
+$$
+
+
+$$
+A=\sum_{i}{\int_{S\ _{i}}^{}{ds\ }{\left(-\sum_{j,k}{U\ _{j}\ T\ _{j,k}\ V\ _{k}}\right)}}
+\tag{20}
+$$
+
+
+$$
+A=-\sum_{i,j,k}{U\ _{j}\ \left(S_{i}\ T\ _{i,j,k}\right)\ V\ _{k}}
+\tag{21}
+$$
+
+<h2>源项</h2>
+
+将式(9)右边记作为,<br>
+
+$$
+A_{2}=\sum_{i}{\int_{S\ _{i}}^{}{ds\ }{f \left( x,y \right)\ v}}
+\tag{22}
+$$
+
+
+$$
+A_{2}=\sum_{i}{\int_{S\ _{i}}^{}{ds\ }{f \left( x,y \right)\ \left(v\ _{i,0}+v\ _{i,1}\ x+v\ _{i,2}\ y\right)}}
+\tag{23}
+$$
+
+
+$$
+A_{2}=\sum_{i,k}{F\ _{i,k}\ v\ _{i,k}}
+\tag{24}
+$$
+
+
+$$
+A_{2}=\sum_{k,i}{F\ _{i,k}\ \sum_{j}{R_{r}\ _{i,k,j}\ V\ _{j}}}
+\tag{25}
+$$
+
+而\(F_{i,k}\)的各个分量分别为,<br>
+
+$$
+F\ _{i,1}=\int_{S_{i}}^{}{ds\ }{f \left( x,y \right)}
+\tag{26}
+$$
+
+
+$$
+F\ _{i,2}=\int_{S_{i}}^{}{ds\ }{x\ f \left( x,y \right)}
+\tag{27}
+$$
+
+
+$$
+F\ _{i,3}=\int_{S_{i}}^{}{ds\ }{y\ f \left( x,y \right)}
+\tag{28}
+$$
+
+<h2>第一类边条件</h2>
+
+假设离散网格上共有\(n+m\)个格点, 其中有\(n\)个内部点和\(m\)个边界点. 包含了所有点的系数矩阵是,<br>
+
+$$
+C\ _{j,k}=-\sum_{i}{\left(S_{i}\ T\ _{i,j,k}\right)}
+\tag{29}
+$$
+
+因为\(V_k\)在边界上必须为0, 所以有\(m\)行等式不存在. 而剩下的方程组可以写作, <br>
+
+$$
+\sum_{j=1}^{n+m}{U\ _{j}\ C\ _{j,k}}=\sum_{j=1}^{n}{U\ _{j}\ C\ _{j,k}}+\sum_{j=n+1}^{n+m}{U\ _{j}\ C\ _{j,k}}
+\tag{30}
+$$
+
+于是第一类边条件项, \(B_1\)就是,<br>
+
+$$
+B_{1}=-\sum_{k}{\sum_{j=n+1}^{n+m}{U\ _{j}\ C\ _{j,k}}\ V\ _{k}}
+\tag{31}
+$$
+
+(最后的系数矩阵是\(n\times n\)的矩阵,仍然是一个方阵)<br>
+<h2>第二类边界条件</h2>
+
+现在不仔细弄, 因为暂时用不上. 思路是, 边界上的\(\nabla u\)给定后, 边界上有\(m\)个点就有\(m\)条边, 就对应着\(m\)个新的约束方程. 暂时不仔细讨论这些方程长啥样了<br>
+
+
+
+    </mathjax></p>
+</div>
+
+<div class="footer">
+  <p>Footer</p>
+</div>
+
+</body>
+</html>

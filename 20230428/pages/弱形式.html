@@ -1,0 +1,96 @@
+<!--
++[返回目录]
+
+LaTeX数学记号::https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
++[打开](,LaTeX数学记号)
+-->
+
+<html>
+  <head>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://stemkoski.github.io/Three.js/js/Three.js"></script>
+<script src="../js/OrbitControls.js"></script>
+<script type="text/javascript" src="../js/threeWorld.js"></script>
+
+
+<script>
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return; // Do nothing if the event was already processed
+  }
+  switch (event.key) {
+    case "Left": // IE/Edge specific value
+    case "ArrowLeft":
+      window.location="../pages/有限元的整体思路.html";
+      break;
+    case "Right": // IE/Edge specific value
+    case "ArrowRight":
+      window.location="../pages/离散化.html";
+      break;
+    default:
+      return; // Quit when this doesn't handle the key event.
+  }
+
+  // Cancel the default action to avoid it being handled twice
+  event.preventDefault();
+}, true);
+</script>
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/styleSheet.css">
+  </head>
+
+
+<body>
+<div class="topnav">
+  <a href="../pages/有限元的整体思路.html">Prev</a>
+  <a href="../index.html">Home</a>
+  <a href="../pages/离散化.html">Next</a>
+</div>
+
+
+<div class="content">
+    <p><mathjax style=\"font-size:1.5em\">
+
+<h1>弱形式</h1>
+令\(v(x,y)\)为任意函数, 于是有,<br>
+
+$$
+\int_{}^{}{ds\ }{\vec{\nabla}^{2}\ u \left( x,y \right)\ v}=\int_{}^{}{ds\ }{f \left( x,y \right)\ v}
+\tag{2}
+$$
+
+
+$$
+\int_{}^{}{ds\ }{\vec{\nabla}\cdot \left(\vec{\nabla}\ u \left( x,y \right)\right)\ v}=\int_{}^{}{ds\ }{f \left( x,y \right)\ v}
+\tag{3}
+$$
+
+
+$$
+\int_{}^{}{ds\\ 
+}{\left(\vec{\nabla}\cdot \left(\vec{\nabla}\ u \left( x,y \right)\ v\right)-\vec{\nabla}\ u \left( x,y \right)\cdot \vec{\nabla}\ v\right)}=\int_{}^{}{ds\ }{f \left( x,y \right)\ v}
+\tag{4}
+$$
+
+$$
+\int_{}^{}{ds\ }{\left(0-\vec{\nabla}\ u \left( x,y \right)\cdot \vec{\nabla}\ v\right)}=\int_{}^{}{ds\ }{f \left( x,y \right)\ v}
+\tag{5}
+$$
+
+
+
+
+    </mathjax></p>
+</div>
+
+<div class="footer">
+  <p>Footer</p>
+</div>
+
+</body>
+</html>
