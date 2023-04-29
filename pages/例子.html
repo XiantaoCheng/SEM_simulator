@@ -1,0 +1,125 @@
+<!--
++[返回目录]
+
+LaTeX数学记号::https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
++[打开](,LaTeX数学记号)
+-->
+
+<html>
+  <head>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://stemkoski.github.io/Three.js/js/Three.js"></script>
+<script src="../js/OrbitControls.js"></script>
+<script type="text/javascript" src="../js/threeWorld.js"></script>
+
+
+<script>
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return; // Do nothing if the event was already processed
+  }
+  switch (event.key) {
+    case "Left": // IE/Edge specific value
+    case "ArrowLeft":
+      window.location="../pages/离散化.html";
+      break;
+    case "Right": // IE/Edge specific value
+    case "ArrowRight":
+      window.location="../pages/title.html";
+      break;
+    default:
+      return; // Quit when this doesn't handle the key event.
+  }
+
+  // Cancel the default action to avoid it being handled twice
+  event.preventDefault();
+}, true);
+</script>
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/styleSheet.css">
+  </head>
+
+
+<body>
+<div class="topnav">
+  <a href="../pages/离散化.html">Prev</a>
+  <a href="../index.html">Home</a>
+  <a href="../pages/title.html">Next</a>
+</div>
+
+
+<div class="content">
+    <p><mathjax style=\"font-size:1.5em\">
+
+<h1>例子</h1>
+假设有如下形状的网格, 请求解其对应的系数矩阵<br>
+<img src="../res/图1.svg"></img>
+区域(1)的面积是,<br>
+
+$$
+S_{1}=1\times 2/2=1
+\tag{32}
+$$
+
+然后有\(R_1\)为,<br>
+
+$$
+\mathbf{R_{1}}=\begin{pmatrix}
+1&0&0\\ 1&2&0.5\\ 1&0&1
+\end{pmatrix}
+\tag{33}
+$$
+
+于是有,<br>
+
+$$
+\mathbf{T_{1}}=\begin{pmatrix}
+1.0625&-0.1250&-0.9375\\ -0.1250&0.2500&-0.1250\\ -0.9375&-0.1250&1.0625
+\end{pmatrix}
+\tag{34}
+$$
+
+用同样的方法处理区域(2),<br>
+
+$$
+\mathbf{R_{2}}=\begin{pmatrix}
+1&2&0.5\\ 1&2&1\\ 1&0&1
+\end{pmatrix}
+\tag{35}
+$$
+
+
+$$
+\mathbf{T_{2}}=\begin{pmatrix}
+4.0000&-4.0000&0\\ -4.0000&4.2500&-0.2500\\ 0&-0.2500&0.2500
+\end{pmatrix}
+\tag{36}
+$$
+
+(面积是\(S_2=1/2\))<br>
+于是全局的系数矩阵是,<br>
+
+$$
+\mathbf{C}=\begin{pmatrix}
+1.0625&-0.1250&0&-0.9375\\\ 
+-0.1250&2.2500&-2.0000&-0.1250\\ 0&-2.0000&2.1250&-0.1250\\ -0.9375&-0.1250&-0.1250&1.1875
+\end{pmatrix}
+\tag{37}
+$$
+
+
+
+    </mathjax></p>
+</div>
+
+<div class="footer">
+  <p>Footer</p>
+</div>
+
+</body>
+</html>

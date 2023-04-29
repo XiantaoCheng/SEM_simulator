@@ -9,6 +9,9 @@ LaTeX数学记号::https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
   <head>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://stemkoski.github.io/Three.js/js/Three.js"></script>
+<script src="../js/OrbitControls.js"></script>
+<script type="text/javascript" src="../js/threeWorld.js"></script>
 
 
 <script>
@@ -19,11 +22,11 @@ window.addEventListener("keydown", function (event) {
   switch (event.key) {
     case "Left": // IE/Edge specific value
     case "ArrowLeft":
-      window.location="../pages/例子.html";
+      window.location="../pages/方法:_传播矩阵.html";
       break;
     case "Right": // IE/Edge specific value
     case "ArrowRight":
-      window.location="../pages/生成网格.html";
+      window.location="../pages/焦点尺寸.html";
       break;
     default:
       return; // Quit when this doesn't handle the key event.
@@ -44,15 +47,32 @@ window.addEventListener("keydown", function (event) {
 
 <body>
 <div class="topnav">
-  <a href="../pages/例子.html">Prev</a>
+  <a href="../pages/方法:_传播矩阵.html">Prev</a>
   <a href="../index.html">Home</a>
-  <a href="../pages/生成网格.html">Next</a>
+  <a href="../pages/焦点尺寸.html">Next</a>
 </div>
 
 
 <div class="content">
     <p><mathjax style=\"font-size:1.5em\">
-<h1>有限元模拟初步</h1>
+
+<h1>测试参数</h1>
+测试参数,<br>
+$$<br>
+U_1=-8000\ V,\ U_0=-4500\ V,\ D=10\ cm,\ d=1\ cm<br>
+$$<br>
+中心电势分布为,<br>
+
+$$
+u(z)=d_{1}\ E_{0}/2\ ln(cosh(\left(z+D\right)/d_{1}))+d_{1}\ E_{0}/2\ ln(cosh(\left(z-D\right)/d_{1}))-d_{0}\ E_{0}\ ln(cosh(z/d_{0}))+u_{0}
+\tag{1}
+$$
+
+其中, \(U_1\)是背景电势, \(U_0\)是透镜电势, \(D\) 是透镜中相邻平板间距. \(d=d_0=d_1\)是电势过渡区域的长度. <br>
+矩阵法得到的轨迹和RK4得到的轨迹大致相同,<br>
+
+
+
     </mathjax></p>
 </div>
 
@@ -62,6 +82,3 @@ window.addEventListener("keydown", function (event) {
 
 </body>
 </html>
-
-
-
